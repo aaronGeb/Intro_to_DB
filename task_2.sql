@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS Orders (
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
 -- CREATES A TABLE `order_items` IN THE `alx_book_store` DATABASE
-CREATE TABLE IF NOT EXISTS Order_items (
+CREATE TABLE IF NOT EXISTS Order_Details (
     orderdetailid INT PRIMARY KEY,
     order_id INT,
     book_id INT,

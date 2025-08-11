@@ -9,7 +9,6 @@ import os
 
 load_dotenv()
 
-db_to_create = "alx_book_store"
 try:
     conn = mysql.connector.connect(
         host=os.getenv("DB_HOST"),
@@ -18,15 +17,14 @@ try:
         port=os.getenv("DB_PORT"),
     )
     cursor = conn.cursor()
-    sql = """CREATE DATABASE IF NOT EXISTS { db_to_create }"""
-    cursor.execute(sql)
-    print(f"Database '{db_to_create}' created successfully.")
+    cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
+    print("Database 'alx_book_store'created successfully.")
 except mysql.connector.Error as e:
     print(f"Missing environment variable: {e}")
 
 finally:
-    if 'cursor' in locals():
+    if "cursor" in locals():
         cursor.close()
-    if 'conn' in locals() and conn.is_connected():
+    if "conn" in locals() and conn.is_connected():
         conn.close()
         print("Connection closed.")

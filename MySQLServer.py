@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-MySQLServer.py
 This script connects to a MySQL server and creates a database if it does not exist.
 """
 
@@ -20,7 +18,8 @@ try:
         port=os.getenv("DB_PORT"),
     )
     cursor = conn.cursor()
-    cursor.execute(f"CREATE DATABASE IF NOT EXISTS { db_to_create }")
+    sql = """CREATE DATABASE IF NOT EXISTS { db_to_create }"""
+    cursor.execute(sql)
     print(f"Database '{db_to_create}' created successfully.")
 except mysql.connector.Error as e:
     print(f"Missing environment variable: {e}")

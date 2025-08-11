@@ -1,5 +1,5 @@
 -- CREATES A TABLE `books` IN THE `alx_book_store` DATABASE
-CREATE TABLE IF NOT EXISTS books (
+CREATE TABLE IF NOT EXISTS Books (
     book_id INT PRIMARY KEY,
     title VARCHAR(130) NOT NULL,
     author_id INT,
@@ -14,21 +14,21 @@ CREATE TABLE IF NOT EXISTS Authors (
 );
 
 -- CREATES A TABLE `customers` IN THE `alx_book_store` DATABASE
-CREATE TABLE IF NOT EXISTS customers (
+CREATE TABLE IF NOT EXISTS Customers (
     customer_id INT PRIMARY KEY,
     customer_name VARCHAR(215),
     email VARCHAR(215) NOT NULL UNIQUE,
     address TEXT
 );
 -- CREATES A TABLE `orders` IN THE `alx_book_store` DATABASE
-CREATE TABLE IF NOT EXISTS orders (
+CREATE TABLE IF NOT EXISTS Orders (
     order_id INT PRIMARY KEY,
     customer_id INT,
     order_date DATE,
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
 -- CREATES A TABLE `order_items` IN THE `alx_book_store` DATABASE
-CREATE TABLE IF NOT EXISTS order_items (
+CREATE TABLE IF NOT EXISTS Order_items (
     orderdetailid INT PRIMARY KEY,
     order_id INT,
     book_id INT,
